@@ -1,45 +1,39 @@
-package jdbc.repo;
+package example.procedure;
 
 import jdbc.config.Dbconfig;
-import jdbc.model.Customer;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CustomerRepository {
-
-    Customer getCustomerbyid(Integer id) {
+    Customer ReadCustomerbyid(Integer id) {
 
         Customer customer = null;
-        Connection connection = Dbconfig.getconnetion();
+        String query = "SELECT * from customers where id=?";
 
-        String query = "Select * from customers where id = ?";
 
-        try (var preparestatement = connection.prepareStatement(query);
-        ) {
-            preparestatement.setInt(1,id);
-            var resultSet = preparestatement.executeQuery();
+        try (var connection = Dbconfig.getconnetion();
+             var preparedStatement = connection.prepareStatement(query)) {
+
+            customer = new Customer();
+            preparedStatement.setInt(1, id);
+            var resultSet = preparedStatement.executeQuery();
+
 
             while (resultSet.next()) {
-                customer = new Customer();
-
                 customer.setId(resultSet.getInt("id"));
                 customer.setName(resultSet.getString("name"));
                 customer.setSurname(resultSet.getString("surname"));
                 customer.setAge(resultSet.getInt("age"));
                 customer.setRegistrationDate(resultSet.getTimestamp("registration_date").toLocalDateTime());
                 customer.setGroupCustomer(resultSet.getInt("group_customer"));
-
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
+
         return customer;
     }
-
-
-
 
 
 }
