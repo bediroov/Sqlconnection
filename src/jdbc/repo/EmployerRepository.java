@@ -22,7 +22,7 @@ public class EmployerRepository {
 
             Duration duration = Duration.between(LastTime, LocalDateTime.now());
 
-            if (duration.toMinutes() < 5) {
+            if (duration.toMinutes() < 1) {
                 System.out.println("Melumat cachdan geeldi");
                 return CachedEmployer;
             }
