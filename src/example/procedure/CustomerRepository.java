@@ -11,6 +11,7 @@ public class CustomerRepository {
         String query = "SELECT * from customers where id=?";
 
 
+
         try (var connection = Dbconfig.getconnetion();
              var preparedStatement = connection.prepareStatement(query)) {
 

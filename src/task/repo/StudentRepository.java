@@ -1,7 +1,7 @@
-package jdbc.repo;
+package task.repo;
 
 import jdbc.config.Dbconfig;
-import jdbc.model.Student;
+import task.model.Student;
 
 import java.sql.*;
 

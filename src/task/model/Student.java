@@ -1,4 +1,4 @@
-package jdbc.model;
+package task.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
