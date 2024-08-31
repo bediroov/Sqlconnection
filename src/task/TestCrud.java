@@ -1,4 +1,4 @@
-package jdbc.repo;
+package task;
 
 import jdbc.model.Employer;
 
@@ -7,11 +7,11 @@ public class TestCrud {
     public static void main(String[] args) {
 
 
-        EmployerRepository employerRepository = new EmployerRepository();
-//        System.out.println(employerRepository.getEmployerMaxSalary());
-
-        Employer employer1 = employerRepository.getEmployerMaxSalary();
-        System.out.println(employer1);
+//        EmployerRepository employerRepository = new EmployerRepository();
+////        System.out.println(employerRepository.getEmployerMaxSalary());
+//
+//        Employer employer1 = employerRepository.getEmployerMaxSalary();
+//        System.out.println(employer1);
 
 //        Employer employer2 = employerRepository.getEmployerMaxSalary();
 //        System.out.println(employer2);
